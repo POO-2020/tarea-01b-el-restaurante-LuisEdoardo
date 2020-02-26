@@ -6,8 +6,8 @@ import Producto from "./producto.js"
 import ElementoPedido from "./elemento-pedido.js"
 import Cliente from "./cliente.js"
 import Pedido from "./pedido.js"
-
-class Restaurante{
+import Restaurante from "./restaurante.js"
+class Main{
     constructor(dia,mes,año){
         this.fecha = new Date(año,mes -1,dia)
         this.meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -66,12 +66,12 @@ class Restaurante{
     probarCliente(){
         console.log('<--------------------Cliente---------------------->')
         let nombre = 'Jose Martin Flores Alcaraz'
-        let direccion = new Direccion('Avenida', 'Acapulco', 234, 12, 'Nuevo Milenio')
+        let direccion = new Direccion('Avenida', 'Acapulco', 234, 12, 'Nuevo Milenio').getFormatoExtendido()
         let telefono = 3125631234
         let cliente = new Cliente(nombre, direccion, telefono)
         console.log(`${cliente.getCliente()}`)
     }
-    pruebaPedido(){
+    probarPedido(){
         console.log('<--------------------Pedidos---------------------->')
         let cantidad1 = 1
         let cantidad2 = 3
@@ -82,7 +82,7 @@ class Restaurante{
         let pedido = new Pedido(
         new Fecha(1, 13, 2020),
         new Tiempo(2, 22, "pm"),
-        new Cliente('Raul Castro Torres', new Direccion ("Avenida", "Acapulco", 123, 2, "Nuevo Milenio"), 3124456446)
+        new Cliente('Raul Castro Torres', new Direccion ("Avenida", "Acapulco", 123, 2, "Nuevo Milenio"), 3124456446).getCliente()
         )
         pedido.agregarElemento(elemento1);
         pedido.agregarElemento(elemento2);
@@ -92,10 +92,40 @@ class Restaurante{
         console.log(pedido.getResumen())
         console.log('Costo total: ' + pedido.getCostoTotal())
     }
-
+    probarRestaurante(){
+        let cantidad1 = 2
+        let cantidad2 = 4
+        let precio1 = new Precio(200).getPrecio()
+        let precio2 = new Precio(100).getPrecio()
+        let producto1 = new ElementoPedido(cantidad1, precio1, new Producto("Pizza", "Mexicana", "Grande", precio1).getDescripcion()).getDescripcionP()
+        let producto2 = new ElementoPedido(cantidad2, precio2, new Producto("Pizza", "Pepperoni", "Grande", precio2).getDescripcion()).getDescripcionP()
+        let pedido1 = new Pedido(
+        new Fecha(1, 13, 2020),
+        new Tiempo(2, 22, "pm"),
+        new Cliente("Raul Castro Torres", new Direccion ("Avenida", "Siempre Viva", 123, 2, "Buena vista"), 3124456446)
+        )
+        let pedido2 = new Pedido(
+            new Fecha(1, 13, 2020),
+            new Tiempo(2, 22, "pm"),
+            new Cliente("Jesus Castro Martinez", new Direccion ("Avenida", "Siempre Viva", 129, 2, "Buena vista").getFormatoExtendido(), 3125156446).getCliente()
+            )
+        let restaurante = new Restaurante("Papa's Pizzeria", 312454467, new Direccion ("Avenida", "Siempre Viva", 654, 1, "Buena vista"), 3124456446)
+        console.log('<---------Restaurante--------->')
+        restaurante.registrarProducto(producto1)
+        restaurante.registrarProducto(producto2)
+        pedido1.agregarElemento(producto1)
+        pedido2.agregarElemento(producto2)
+        restaurante.registrarPedido(pedido1)
+        restaurante.registrarPedido(pedido2)
+        console.log(`-----Pedidos-----`)
+        restaurante.listarProductos()
+        console.log(`-----Productos-----`)
+        restaurante.listarPedidos()
     }
+}
+    
 
-let app = new Restaurante
+let app = new Main
 app.probarFecha()
 app.probarTiempo()
 app.probarDireccion()
@@ -103,4 +133,5 @@ app.probrarPrecio()
 app.probarProducto()
 app.probarCliente()
 app.probarElementoPedido()
-app.pruebaPedido()
+app.probarPedido()
+app.probarRestaurante()

@@ -6,6 +6,6 @@ export default class Cliente{
     }
     
 getCliente(){
-    return `Nombre: ${this.nombre}\n Direccion: ${this.direccion.getFormatoExtendido()}\n Telefono: ${this.telefono} `
+    return `Nombre: ${this.nombre}\n Direccion: ${this.direccion}\n Telefono: ${this.telefono} `
 }
 }
