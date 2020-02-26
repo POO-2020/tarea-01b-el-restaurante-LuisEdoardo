@@ -3,6 +3,7 @@ import Tiempo from "./tiempo.js"
 import Direccion from "./direccion.js"
 import Precio from "./precio.js"
 import Producto from "./producto.js"
+import ElementoPedido from "./elemento-pedido.js"
 class Restaurante{
     constructor(dia,mes,año){
         this.fecha = new Date(año,mes -1,dia)
@@ -51,6 +52,14 @@ class Restaurante{
         let producto = new Producto('Pizza', 'Mexicana', 'Grande', new Precio(200))
         console.log(`${producto.getDescripcion()}`)
     }
+    probarElementoPedido(){
+        console.log('<--------------------Elemento Pedido---------------------->')
+        let cantidad = 64
+        let costo = new Precio(200 * cantidad)
+        let producto = new Producto('Pizza', 'Mexicana', 'Grande')
+        let pedido = new ElementoPedido(cantidad, costo, producto)
+        console.log(`${pedido.getDescripcionP()}`)
+    }
 }
 let app = new Restaurante
 app.probarFecha()
@@ -58,3 +67,4 @@ app.probarTiempo()
 app.probarDireccion()
 app.probrarPrecio()
 app.probarProducto()
+app.probarElementoPedido()
