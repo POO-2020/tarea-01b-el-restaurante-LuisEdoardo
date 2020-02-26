@@ -4,6 +4,9 @@ import Direccion from "./direccion.js"
 import Precio from "./precio.js"
 import Producto from "./producto.js"
 import ElementoPedido from "./elemento-pedido.js"
+import Cliente from "./cliente.js"
+import Pedido from "./pedido.js"
+
 class Restaurante{
     constructor(dia,mes,año){
         this.fecha = new Date(año,mes -1,dia)
@@ -49,22 +52,53 @@ class Restaurante{
     }
     probarProducto(){
         console.log('<--------------------Producto---------------------->')
-        let producto = new Producto('Pizza', 'Mexicana', 'Grande', new Precio(200))
+        let producto = new Producto('Pizza', 'Mexicana', 'Grande', new Precio(200).getPrecio())
         console.log(`${producto.getDescripcion()}`)
     }
     probarElementoPedido(){
         console.log('<--------------------Elemento Pedido---------------------->')
-        let cantidad = 64
-        let costo = new Precio(200 * cantidad)
-        let producto = new Producto('Pizza', 'Mexicana', 'Grande')
+        let cantidad = 2
+        let costo = new Precio(200 * cantidad).getPrecio()
+        let producto = new Producto('Pizza', 'Mexicana', 'Grande').getDescripcion()
         let pedido = new ElementoPedido(cantidad, costo, producto)
         console.log(`${pedido.getDescripcionP()}`)
     }
-}
+    probarCliente(){
+        console.log('<--------------------Cliente---------------------->')
+        let nombre = 'Jose Martin Flores Alcaraz'
+        let direccion = new Direccion('Avenida', 'Acapulco', 234, 12, 'Nuevo Milenio')
+        let telefono = 3125631234
+        let cliente = new Cliente(nombre, direccion, telefono)
+        console.log(`${cliente.getCliente()}`)
+    }
+    pruebaPedido(){let cantidad1 = 1
+        let cantidad2 = 3
+        let precio1 = new Precio(200)
+        let precio2 = new Precio(100)
+        let elemento1 = new ElementoPedido(cantidad1, precio1, new Producto("Pizza", "Mexicana", "Grande", precio1))
+        let elemento2 = new ElementoPedido(cantidad2, precio2, new Producto("Pizza", "Pepperoni", "Grande", precio2))
+        let pedido = new Pedido(
+        new Fecha(1, 13, 2020),
+        new Tiempo(2, 22, "pm"),
+        new Cliente('Raul Castro Torres', new Direccion ("Avenida", "Acapulco", 123, 2, "Nuevo Milenio"), 3124456446)
+        )
+        pedido.agregarElemento(elemento1);
+        pedido.agregarElemento(elemento2);
+        console.log("Cantidad de productos distintos: " + pedido.getNumeroElementos())
+        console.log("Total de productos: " + pedido.getNumeroProductos()) 
+        pedido.listarElementos()
+        console.log(pedido.getResumen())
+        console.log('Costo total: ' + pedido.getCostoTotal())
+    }
+
+    }
+
 let app = new Restaurante
 app.probarFecha()
 app.probarTiempo()
 app.probarDireccion()
 app.probrarPrecio()
 app.probarProducto()
+app.probarCliente()
 app.probarElementoPedido()
+app.pruebaPedido()

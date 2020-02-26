@@ -13,6 +13,6 @@ export default class Producto{
         this.costo = costo
     }
     getDescripcion(){
-        return `${this.producto} ${this.tipo} ${this.tamaño} ${this.costo.getPrecio()}`
+        return `${this.producto} ${this.tipo} ${this.tamaño} ${this.costo}`
     }
 }
