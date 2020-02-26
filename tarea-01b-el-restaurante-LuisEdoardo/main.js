@@ -71,7 +71,9 @@ class Restaurante{
         let cliente = new Cliente(nombre, direccion, telefono)
         console.log(`${cliente.getCliente()}`)
     }
-    pruebaPedido(){let cantidad1 = 1
+    pruebaPedido(){
+        console.log('<--------------------Pedidos---------------------->')
+        let cantidad1 = 1
         let cantidad2 = 3
         let precio1 = new Precio(200)
         let precio2 = new Precio(100)
