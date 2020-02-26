@@ -14,17 +14,16 @@ export default class Direccion{
         this.tipo = tipo
         this.nombre = nombre
     }
-    getFormatoCorto(){
+    getFormatoCorto() {
         let tipo = this.tipo
-        if(tipo === "Avenida" || tipo === "avenida"){
+        if (tipo === "Avenida" || tipo === "avenida") {
             tipo = "Av."
-        }else if(tipo === "Calle" || tipo === "calle"){
+        } else if (tipo === "Calle" || tipo === "calle") {
             tipo = "C."
         }
         return `${tipo} ${this.nombre} ${this.numeroE} ${this.numeroI}`
     }
-
-    getFormatoExtendido(){
+    getFormatoExtendido() {
         return `${this.tipo} ${this.nombre} ${this.numeroE} ${this.numeroI} ${this.colonia}`
     }
 }

@@ -1,6 +1,7 @@
 import Fecha from "./fecha.js"
 import Tiempo from "./tiempo.js"
 import Direccion from "./direccion.js"
+import Precio from "./precio.js"
 class Restaurante{
     constructor(dia,mes,año){
         this.fecha = new Date(año,mes -1,dia)
@@ -32,9 +33,21 @@ class Restaurante{
         console.log(`${direccion.getFormatoCorto()}`)
         console.log(`${direccion.getFormatoExtendido()}`)    
     }
-
+    
+    probrarPrecio(){
+        console.log('<--------------------Precio---------------------->')
+        let precio1 = new Precio(127.00)
+        let precio2 = new Precio(127.45)
+        let precio3 = new Precio(1127.00)
+        let precio4 = new Precio(34127.45)
+        console.log(`${precio1.getPrecio()}`)
+        console.log(`${precio2.getPrecio()}`)
+        console.log(`${precio3.getPrecio()}`)
+        console.log(`${precio4.getPrecio()}`)
+    }
 }
 let app = new Restaurante
 app.probarFecha()
 app.probarTiempo()
 app.probarDireccion()
+app.probrarPrecio()
