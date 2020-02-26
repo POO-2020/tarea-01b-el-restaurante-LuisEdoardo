@@ -1,4 +1,5 @@
 import Fecha from "./fecha.js"
+import Tiempo from "./tiempo.js"
 class Restaurante{
     constructor(dia,mes,año){
         this.fecha = new Date(año,mes -1,dia)
@@ -8,6 +9,7 @@ class Restaurante{
     }
 
     probarFecha(){
+        console.log('<--------------------Fecha---------------------->')
         let fecha = new Fecha(1,2,2000)
         console.log(`El día fue ${fecha.getDiaFecha()}`);
         console.log(`Han pasado ${fecha.getAños()} Años`)
@@ -16,6 +18,14 @@ class Restaurante{
         console.log(`Han pasado ${fecha.getDias()} Días`);
     }
 
+    probarTiempo(){
+        console.log('<--------------------Tiempo---------------------->')
+    let h = new Tiempo(18,55,"AM")
+    console.log(h.getFormato24())
+    console.log(h.getFormato12())
+    }
+
 }
 let app = new Restaurante
 app.probarFecha()
+app.probarTiempo()
