@@ -1,5 +1,6 @@
 import Fecha from "./fecha.js"
 import Tiempo from "./tiempo.js"
+import Direccion from "./direccion.js"
 class Restaurante{
     constructor(dia,mes,año){
         this.fecha = new Date(año,mes -1,dia)
@@ -25,7 +26,15 @@ class Restaurante{
     console.log(h.getFormato12())
     }
 
+    probarDireccion(){
+        console.log('<--------------------Direccion---------------------->')
+        let direccion = new Direccion("Avenida", "Acapulco", 234, 12, "Nuevo Milenio")
+        console.log(`${direccion.getFormatoCorto()}`)
+        console.log(`${direccion.getFormatoExtendido()}`)    
+    }
+
 }
 let app = new Restaurante
 app.probarFecha()
 app.probarTiempo()
+app.probarDireccion()
