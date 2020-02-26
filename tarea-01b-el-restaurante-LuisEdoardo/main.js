@@ -102,14 +102,14 @@ class Main{
         let pedido1 = new Pedido(
         new Fecha(1, 13, 2020),
         new Tiempo(2, 22, "pm"),
-        new Cliente("Raul Castro Torres", new Direccion ("Avenida", "Siempre Viva", 123, 2, "Buena vista"), 3124456446)
+        new Cliente("Raul Castro Torres", new Direccion ("Avenida", "Acapulco", 123, 2, "Nuevo Milenio"), 3122381273)
         )
         let pedido2 = new Pedido(
             new Fecha(1, 13, 2020),
             new Tiempo(2, 22, "pm"),
-            new Cliente("Jesus Castro Martinez", new Direccion ("Avenida", "Siempre Viva", 129, 2, "Buena vista").getFormatoExtendido(), 3125156446).getCliente()
+            new Cliente("Jesus Castro Martinez", new Direccion ("Avenida", "Acapulco", 78, 2, "Nuevo Milenio").getFormatoExtendido(), 3129803452).getCliente()
             )
-        let restaurante = new Restaurante("Papa's Pizzeria", 312454467, new Direccion ("Avenida", "Siempre Viva", 654, 1, "Buena vista"), 3124456446)
+        let restaurante = new Restaurante("Papa's Pizzeria", 3125362822, new Direccion ("Avenida", "Acapulco", 203, 1, "Nuevo Milenio"), 3126374352)
         console.log('<---------Restaurante--------->')
         restaurante.registrarProducto(producto1)
         restaurante.registrarProducto(producto2)
