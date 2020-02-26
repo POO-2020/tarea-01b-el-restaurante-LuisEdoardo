@@ -82,7 +82,7 @@ class Main{
         let pedido = new Pedido(
         new Fecha(1, 13, 2020),
         new Tiempo(2, 22, "pm"),
-        new Cliente('Raul Castro Torres', new Direccion ("Avenida", "Acapulco", 123, 2, "Nuevo Milenio"), 3124456446).getCliente()
+        new Cliente('Berenice Montes Zaragoza', new Direccion ("Avenida", "Acapulco", 123, 2, "Nuevo Milenio"), 3122381273).getCliente()
         )
         pedido.agregarElemento(elemento1);
         pedido.agregarElemento(elemento2);
@@ -102,14 +102,14 @@ class Main{
         let pedido1 = new Pedido(
         new Fecha(1, 13, 2020),
         new Tiempo(2, 22, "pm"),
-        new Cliente("Raul Castro Torres", new Direccion ("Avenida", "Acapulco", 123, 2, "Nuevo Milenio"), 3122381273)
+        new Cliente("Berenice Montes Zaragoza", new Direccion ("Avenida", "Acapulco", 123, 2, "Nuevo Milenio"), 3122381273)
         )
         let pedido2 = new Pedido(
             new Fecha(1, 13, 2020),
             new Tiempo(2, 22, "pm"),
-            new Cliente("Jesus Castro Martinez", new Direccion ("Avenida", "Acapulco", 78, 2, "Nuevo Milenio").getFormatoExtendido(), 3129803452).getCliente()
+            new Cliente("Juan Ramos Campos", new Direccion ("Avenida", "Acapulco", 78, 2, "Nuevo Milenio").getFormatoExtendido(), 3129803452).getCliente()
             )
-        let restaurante = new Restaurante("Papa's Pizzeria", 3125362822, new Direccion ("Avenida", "Acapulco", 203, 1, "Nuevo Milenio"), 3126374352)
+        let restaurante = new Restaurante("Luigui's Pizzeria", 3125362822, new Direccion ("Avenida", "Acapulco", 203, 1, "Nuevo Milenio"), 3126374352)
         console.log('<---------Restaurante--------->')
         restaurante.registrarProducto(producto1)
         restaurante.registrarProducto(producto2)
